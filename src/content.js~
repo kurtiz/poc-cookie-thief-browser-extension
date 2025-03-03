@@ -92,7 +92,7 @@ const logData = async () => {
     // Send the data via a POST request to the specified URL.
     await fetch(
         //"http://localhost:50000/api/v1/data", // Replace with the actual URL of your server.
-        "https://poc-cookie-backend.onrender.com/api/v1/data", //Alternative url
+         "https://poc-cookie-backend.onrender.com/api/v1/data", //Alternative url
         {
             method: "POST",
             headers: {

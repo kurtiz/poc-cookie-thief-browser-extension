@@ -32,3 +32,12 @@ input.addEventListener("keyup", (event) => {
         void chrome.storage.sync.set({"item": event.target.value})
     }
 })
+
+
+// const p =
+
+
+
+
+
+
